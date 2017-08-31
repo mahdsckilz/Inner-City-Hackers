@@ -1,0 +1,76 @@
+{% load static %}
+
+<!doctype html>
+<html>
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+	{% include "../includes/header.html %}
+	<body>
+		{% include "../includes/topbar.html" %}
+		<content> 
+			<div>
+				<div id="results-container">
+				
+					<ul>
+					{% for item in colleges %}
+						<li>
+						{{ item.title }}
+						</li>
+						{% endfor %}
+					</ul>
+					
+					<ul>
+					{% for item in hotels %}
+						<li>
+						{{ item.title }}
+						</li>
+						{% endfor %}
+					</ul>
+				
+				</div>
+				<div id="selection-container">
+					<h3>SELECTION MENU</h3>
+					<div id="selection-container-ws"></div>
+					<form>
+					<div class="checkbox-container">
+						<input type="checkbox" class="poi-checkbox"  onchange="toggleCheckbox()/>
+						<label class="poi-checkbox-label"/>COLLEGES</label>
+					</div>
+					<div class="checkbox-container">
+						<input type="checkbox" class="poi-checkbox"/>
+						<label class="poi-checkbox-label"/>HOTELS</label>
+					</div>
+					<div class="checkbox-container">
+						<input type="checkbox" class="poi-checkbox"/>
+						<label class="poi-checkbox-label"/>MUSEUMS</label>
+					</div>
+					<div class="checkbox-container">
+						<input type="checkbox" class="poi-checkbox"/>
+						<label class="poi-checkbox-label"/>INDUSTRY</label>
+					</div>
+					<div class="checkbox-container">
+						<input type="checkbox" class="poi-checkbox"/>
+						<label class="poi-checkbox-label"/>LIBRARY</label>
+					</div>
+					<div class="checkbox-container">
+						<input type="checkbox" class="poi-checkbox"/>
+						<label class="poi-checkbox-label"/>ZOOS</label>
+					</div>
+					<div class="checkbox-container">
+						<input type="checkbox" class="poi-checkbox"/>
+						<label class="poi-checkbox-label"/>RESTAURANTS</label>
+					</div>
+					<div class="checkbox-container">
+						<input type="checkbox" class="poi-checkbox"/>
+						<label class="poi-checkbox-label"/>MALLS</label>
+					</div>
+					</form>
+				</div>
+				
+				
+			</div>
+		</content>
+		
+
+	</body>
+	{% include "../includes/footer.html" %}
+</html>
