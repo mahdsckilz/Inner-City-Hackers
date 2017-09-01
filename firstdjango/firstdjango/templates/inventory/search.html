@@ -10,21 +10,82 @@
 			<div>
 				<div id="results-container">
 				
-					<ul>
+					<ul id="colleges-list">
 					{% for item in colleges %}
+						<li>
+							<a href="{% url 'college' item.id %}">
+								{{ item.title }}
+							</a>
+						</li>
+						{% endfor %}
+					</ul>
+					
+					<ul id="hotels-list">
+					{% for item in hotels %}
+						<a href="{% url 'hotel' item.id %}">
+							<li>
+								{{ item.title }}
+							</li>
+						</a>
+						{% endfor %}
+					</ul>
+					
+					<ul id="museums-list">
+					{% for item in museums %}
 						<li>
 						{{ item.title }}
 						</li>
 						{% endfor %}
 					</ul>
 					
-					<ul>
-					{% for item in hotels %}
+					<ul id="industries-list">
+					{% for item in industries %}
 						<li>
 						{{ item.title }}
 						</li>
 						{% endfor %}
 					</ul>
+					
+					<ul id="libraries-list">
+					{% for item in libraries %}
+						<li>
+						{{ item.title }}
+						</li>
+						{% endfor %}
+					</ul>
+					
+					<ul id="zoos-list">
+					{% for item in zoos %}
+						<li>
+						{{ item.title }}
+						</li>
+						{% endfor %}
+					</ul>
+					
+					<ul id="parks-list">
+					{% for item in parks %}
+						<li>
+						{{ item.title }}
+						</li>
+						{% endfor %}
+					</ul>
+					
+					<ul id="restaurants-list">
+					{% for item in restaurants %}
+						<li>
+						{{ item.title }}
+						</li>
+						{% endfor %}
+					</ul>
+					
+					<ul id="malls-list">
+					{% for item in malls %}
+						<li>
+						{{ item.title }}
+						</li>
+						{% endfor %}
+					</ul>
+				
 				
 				</div>
 				<div id="selection-container">
@@ -32,45 +93,47 @@
 					<div id="selection-container-ws"></div>
 					<form>
 					<div class="checkbox-container">
-						<input type="checkbox" class="poi-checkbox"  onchange="toggleCheckbox()/>
+						<input type="checkbox" class="poi-checkbox" checked onchange="toggleList(this, 'colleges-list')"/>
 						<label class="poi-checkbox-label"/>COLLEGES</label>
 					</div>
 					<div class="checkbox-container">
-						<input type="checkbox" class="poi-checkbox"/>
+						<input type="checkbox" class="poi-checkbox" checked onchange="toggleList(this, 'hotels-list')"/>
 						<label class="poi-checkbox-label"/>HOTELS</label>
 					</div>
 					<div class="checkbox-container">
-						<input type="checkbox" class="poi-checkbox"/>
+						<input type="checkbox" class="poi-checkbox" checked onchange="toggleList(this, 'museums-list')"/>
 						<label class="poi-checkbox-label"/>MUSEUMS</label>
 					</div>
 					<div class="checkbox-container">
-						<input type="checkbox" class="poi-checkbox"/>
+						<input type="checkbox" class="poi-checkbox" checked onchange="toggleList(this, 'industries-list')"/>
 						<label class="poi-checkbox-label"/>INDUSTRY</label>
 					</div>
 					<div class="checkbox-container">
-						<input type="checkbox" class="poi-checkbox"/>
+						<input type="checkbox" class="poi-checkbox" checked onchange="toggleList(this, 'libraries-list')"/>
 						<label class="poi-checkbox-label"/>LIBRARY</label>
 					</div>
 					<div class="checkbox-container">
-						<input type="checkbox" class="poi-checkbox"/>
+						<input type="checkbox" class="poi-checkbox" checked onchange="toggleList(this, 'zoos-list')"/>
 						<label class="poi-checkbox-label"/>ZOOS</label>
 					</div>
 					<div class="checkbox-container">
-						<input type="checkbox" class="poi-checkbox"/>
+						<input type="checkbox" class="poi-checkbox" checked onchange="toggleList(this, 'parks-list')"/>
+						<label class="poi-checkbox-label"/>PARKS</label>
+					</div>
+					<div class="checkbox-container">
+						<input type="checkbox" class="poi-checkbox" checked onchange="toggleList(this, 'restaurants-list')"/>
 						<label class="poi-checkbox-label"/>RESTAURANTS</label>
 					</div>
 					<div class="checkbox-container">
-						<input type="checkbox" class="poi-checkbox"/>
+						<input type="checkbox" class="poi-checkbox" checked onchange="toggleList(this, 'malls-list')"/>
 						<label class="poi-checkbox-label"/>MALLS</label>
 					</div>
 					</form>
-				</div>
-				
-				
+				</div>	
 			</div>
 		</content>
 		
-
+	<script type="text/javascript" src="{% static 'js/main.js' %}"> </script>
 	</body>
 	{% include "../includes/footer.html" %}
 </html>

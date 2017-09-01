@@ -8,17 +8,27 @@ def index(request):
         })
 		
 def search(request):
-		try:
-			colleges = College.objects.all()
-		except College.DoesNotExist:
-			raise Http404('This item does not exist')
-		try:
-			hotels = Hotel.objects.all()
-		except Hotel.DoesNotExist:
-			raise Http404('This item does not exist')
+		
+		colleges = College.objects.all()
+		hotels = Hotel.objects.all()
+		industries = Industry.objects.all()
+		libraries = Library.objects.all()
+		malls = Mall.objects.all()
+		museums = Museum.objects.all()
+		parks = Park.objects.all()
+		restaurants = Restaurant.objects.all()
+		zoos = Zoo.objects.all()
+		
 		return render(request, 'inventory/search.html', {
         'colleges': colleges,
 		'hotels' : hotels,
+		'industries' : industries,
+		'libraries' : libraries,
+		'malls' : malls,
+		'museums' : museums,
+		'parks' : parks,
+		'restaurants' : restaurants,
+		'zoos' : zoos,
 		})
 
 def college_detail(request, id):
