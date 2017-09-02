@@ -4,136 +4,146 @@
 <html>
 	<script src="https://www.w3schools.com/lib/w3.js"></script>
 	{% include "../includes/header.html %}
-	<body>
+	<body">
 		{% include "../includes/topbar.html" %}
-		<content> 
+		<content>
 			<div>
-				<div id="results-container">
-				
-					<ul id="colleges-list">
-					{% for item in colleges %}
-						<li>
-							<a href="{% url 'college' item.id %}">
-								{{ item.title }}
-							</a>
-						</li>
-						{% endfor %}
-					</ul>
+				<div id="results-container" cellspacing='0'>
+					<div class="result-header" id="list-titles">
+						<div class="result-col1">TITLE</div>
+						<div class="result-col2">ADDRESS</div>
+					</div>
 					
-					<ul id="hotels-list">
+					{% for item in colleges %}			
+					<a href="{% url 'college' item.id %}">
+						<div class="result-row" id="colleges-list" >
+							<div class="result-col1">{{ item.title }} </div>
+							<div class="result-col2">{{ item.address }} </div>
+						</div>
+					</a>
+					{% endfor %}
+					
+					
+					
 					{% for item in hotels %}
 						<a href="{% url 'hotel' item.id %}">
-							<li>
-								{{ item.title }}
-							</li>
+							<div class="result-row" id="hotels-list">
+								<div class="result-col1"> {{ item.title }} </div>
+								<div class="result-col2"> {{ item.address }}</div>
+							</div>
 						</a>
-						{% endfor %}
-					</ul>
+					{% endfor %}
 					
-					<ul id="museums-list">
-					{% for item in museums %}
-						<li>
-						{{ item.title }}
-						</li>
-						{% endfor %}
-					</ul>
+				    {% for item in museums %}
+						<a href="{% url 'hotel' item.id %}">
+							<div class="result-row" id="museums-list">
+								<div class="result-col1"> {{ item.title }}</div>
+								<div class="result-col2"> AAA </div>
+							</div>
+						</a>
+					{% endfor %}
 					
-					<ul id="industries-list">
 					{% for item in industries %}
-						<li>
-						{{ item.title }}
-						</li>
-						{% endfor %}
-					</ul>
+						<a href="{% url 'industry' item.id %}">
+							<div class="result-row" id="industries-list">
+								<div class="result-col1"> {{ item.title }} </div>
+								<div class="result-col2"> {{ item.address }}</div>
+							</div>
+						</a>
+					{% endfor %}
 					
-					<ul id="libraries-list">
 					{% for item in libraries %}
-						<li>
-						{{ item.title }}
-						</li>
-						{% endfor %}
-					</ul>
+						<a href="{% url 'library' item.id %}">
+							<div class="result-row" id="libraries-list">
+								<div class="result-col1"> {{ item.title }} </div>
+								<div class="result-col2"> {{ item.address }}</div>
+							</div>
+						</a>
+					{% endfor %}
 					
-					<ul id="zoos-list">
 					{% for item in zoos %}
-						<li>
-						{{ item.title }}
-						</li>
-						{% endfor %}
-					</ul>
+						<a href="{% url 'zoo' item.id %}">
+							<div class="result-row" id="zoos-list">
+								<div class="result-col1"> {{ item.title }} </div>
+								<div class="result-col2"> {{ item.address }}</div>
+							</div>
+						</a>
+					{% endfor %}
 					
-					<ul id="parks-list">
 					{% for item in parks %}
-						<li>
-						{{ item.title }}
-						</li>
-						{% endfor %}
-					</ul>
+						<a href="{% url 'park' item.id %}">
+							<div class="result-row" id="parks-list">
+								<div class="result-col1"> {{ item.title }} </div>
+								<div class="result-col2"> {{ item.address }}</div>
+							</div>
+						</a>
+					{% endfor %}
 					
-					<ul id="restaurants-list">
 					{% for item in restaurants %}
-						<li>
-						{{ item.title }}
-						</li>
-						{% endfor %}
-					</ul>
+						<a href="{% url 'restaurant' item.id %}">
+							<div class="result-row" id="restaurants-list">
+								<div class="result-col1"> {{ item.title }} </div>
+								<div class="result-col2"> {{ item.address }}</div>
+							</div>
+						</a>
+					{% endfor %}
 					
-					<ul id="malls-list">
 					{% for item in malls %}
-						<li>
-						{{ item.title }}
-						</li>
-						{% endfor %}
-					</ul>
-				
-				
+						<a href="{% url 'mall' item.id %}">
+							<div class="result-row" id="malls-list">
+								<div class="result-col1"> {{ item.title }} </div>
+								<div class="result-col2"> {{ item.address }}</div>
+							</div>
+						</a>
+					{% endfor %}
+
 				</div>
 				<div id="selection-container">
 					<h3>SELECTION MENU</h3>
 					<div id="selection-container-ws"></div>
 					<form>
-					<div class="checkbox-container">
-						<input type="checkbox" class="poi-checkbox" checked onchange="toggleList(this, 'colleges-list')"/>
-						<label class="poi-checkbox-label"/>COLLEGES</label>
-					</div>
-					<div class="checkbox-container">
-						<input type="checkbox" class="poi-checkbox" checked onchange="toggleList(this, 'hotels-list')"/>
-						<label class="poi-checkbox-label"/>HOTELS</label>
-					</div>
-					<div class="checkbox-container">
-						<input type="checkbox" class="poi-checkbox" checked onchange="toggleList(this, 'museums-list')"/>
-						<label class="poi-checkbox-label"/>MUSEUMS</label>
-					</div>
-					<div class="checkbox-container">
-						<input type="checkbox" class="poi-checkbox" checked onchange="toggleList(this, 'industries-list')"/>
-						<label class="poi-checkbox-label"/>INDUSTRY</label>
-					</div>
-					<div class="checkbox-container">
-						<input type="checkbox" class="poi-checkbox" checked onchange="toggleList(this, 'libraries-list')"/>
-						<label class="poi-checkbox-label"/>LIBRARY</label>
-					</div>
-					<div class="checkbox-container">
-						<input type="checkbox" class="poi-checkbox" checked onchange="toggleList(this, 'zoos-list')"/>
-						<label class="poi-checkbox-label"/>ZOOS</label>
-					</div>
-					<div class="checkbox-container">
-						<input type="checkbox" class="poi-checkbox" checked onchange="toggleList(this, 'parks-list')"/>
-						<label class="poi-checkbox-label"/>PARKS</label>
-					</div>
-					<div class="checkbox-container">
-						<input type="checkbox" class="poi-checkbox" checked onchange="toggleList(this, 'restaurants-list')"/>
-						<label class="poi-checkbox-label"/>RESTAURANTS</label>
-					</div>
-					<div class="checkbox-container">
-						<input type="checkbox" class="poi-checkbox" checked onchange="toggleList(this, 'malls-list')"/>
-						<label class="poi-checkbox-label"/>MALLS</label>
-					</div>
+						<div class="checkbox-container">
+							<input type="checkbox" class="poi-checkbox" id="college-checkbox"onchange="toggleList(this, 'colleges-list')"/>
+							<label class="poi-checkbox-label"/>COLLEGES</label>
+						</div>
+						<div class="checkbox-container">
+							<input type="checkbox" class="poi-checkbox" id="hotel-checkbox" onchange="toggleList(this, 'hotels-list')"/>
+							<label class="poi-checkbox-label"/>HOTELS</label>
+						</div>
+						<div class="checkbox-container">
+							<input type="checkbox" class="poi-checkbox" id="museum-checkbox" onchange="toggleList(this, 'museums-list')"/>
+							<label class="poi-checkbox-label"/>MUSEUMS</label>
+						</div>
+						<div class="checkbox-container">
+							<input type="checkbox" class="poi-checkbox" id="industry-checkbox" onchange="toggleList(this, 'industries-list')"/>
+							<label class="poi-checkbox-label"/>INDUSTRY</label>
+						</div>
+						<div class="checkbox-container">
+							<input type="checkbox" class="poi-checkbox" id="library-checkbox" onchange="toggleList(this, 'libraries-list')"/>
+							<label class="poi-checkbox-label"/>LIBRARY</label>
+						</div>
+						<div class="checkbox-container">
+							<input type="checkbox" class="poi-checkbox" id="zoo-checkbox" onchange="toggleList(this, 'zoos-list')"/>
+							<label class="poi-checkbox-label"/>ZOOS</label>
+						</div>
+						<div class="checkbox-container">
+							<input type="checkbox" class="poi-checkbox" id='park-checkbox' onchange="toggleList(this, 'parks-list')"/>
+							<label class="poi-checkbox-label"/>PARKS</label>
+						</div>
+						<div class="checkbox-container">
+							<input type="checkbox" class="poi-checkbox" id='restaurant-checkbox' onchange="toggleList(this, 'restaurants-list')"/>
+							<label class="poi-checkbox-label"/>RESTAURANTS</label>
+						</div>
+						<div class="checkbox-container">
+							<input type="checkbox" class="poi-checkbox" id='mall-checkbox' onchange="toggleList(this, 'malls-list')"/>
+							<label class="poi-checkbox-label"/>MALLS</label>
+						</div>
 					</form>
 				</div>	
 			</div>
 		</content>
 		
-	<script type="text/javascript" src="{% static 'js/main.js' %}"> </script>
+	<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 	</body>
 	{% include "../includes/footer.html" %}
 </html>

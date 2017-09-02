@@ -1,13 +1,19 @@
 from django.shortcuts import render
 from django.http import Http404
+from itertools import chain
 
 from inventory.models import *
+from django.contrib.auth.models import User, Group
+
+
 
 def index(request):
     return render(request, 'inventory/index.html', {
         })
-		
+	
 def search(request):
+		
+		students = User.objects.all()
 		
 		colleges = College.objects.all()
 		hotels = Hotel.objects.all()
@@ -29,6 +35,7 @@ def search(request):
 		'parks' : parks,
 		'restaurants' : restaurants,
 		'zoos' : zoos,
+		'students': students,
 		})
 
 def college_detail(request, id):
