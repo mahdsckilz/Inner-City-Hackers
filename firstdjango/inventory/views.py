@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import Http404
+from django.http import HttpResponse
 from itertools import chain
 
 from inventory.models import *
@@ -8,14 +9,31 @@ from django.contrib.auth.models import User, Group
 
 
 def index(request):
-    return render(request, 'inventory/index.html', {
-        })
+
+		city = City.objects.all()
+		
+		request.session.set_test_cookie()
+	
+		return render(request, 'inventory/index.html', {
+		'city' : city,
+		})
+		
+def bootstrap(request):
+	request.session.set_test_cookie()
+	
+	return render(request, 'bootstrap/index.html', {
+	})
 	
 def search(request):
 		
-		students = User.objects.all()
-		
-		colleges = College.objects.all()
+		if request.session.test_cookie_worked():
+			print("TEST COOKIE WORKED!")
+			request.session.delete_test_cookie()
+			
+		selectedCity = City.objects.get(name='Brisbane');
+				
+		students = User.objects.all()		
+		colleges = College.objects.filter(city__name__exact=selectedCity)
 		hotels = Hotel.objects.all()
 		industries = Industry.objects.all()
 		libraries = Library.objects.all()
@@ -24,6 +42,8 @@ def search(request):
 		parks = Park.objects.all()
 		restaurants = Restaurant.objects.all()
 		zoos = Zoo.objects.all()
+		cafes = Cafe.objects.all()
+		
 		
 		return render(request, 'inventory/search.html', {
         'colleges': colleges,
@@ -36,6 +56,8 @@ def search(request):
 		'restaurants' : restaurants,
 		'zoos' : zoos,
 		'students': students,
+		'cafes' : cafes,
+		'city' : selectedCity,
 		})
 
 def college_detail(request, id):
@@ -118,3 +140,30 @@ def mall_detail(request, id):
     return render(request, 'inventory/item_detail.html', {
         'item': item,
     })
+	
+def cafe_detail(request, id):
+    try:
+        item = Cafe.objects.get(id=id)
+    except Cafe.DoesNotExist:
+        raise Http404('This item does not exist')
+    return render(request, 'inventory/item_detail.html', {
+        'item': item,
+    })
+	
+def group_cookie_handler(request, response, groupPOST):
+	group = groupPOST
+	
+	response.set_cookie('group', group)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

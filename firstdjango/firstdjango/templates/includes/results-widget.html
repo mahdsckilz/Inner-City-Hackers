@@ -1,0 +1,121 @@
+{% load static %}
+
+			<div id="results-container">
+					<div class="result-header" id="list-titles">
+						<div class="result-col1">TITLE</div>
+						<div class="result-col2">ADDRESS</div>
+					</div>
+					
+					
+					<div id='college-rows' class='list-container'>
+					{% for item in colleges %}			
+						<div class="result-row" id="colleges-list">
+							<a href="{% url 'college' item.id %}">
+							<div class="result-col1">{{ item.title }}</div>
+							<div class="result-col2">{{ item.address }}</div>
+							</a>
+						</div>
+					{% endfor %}
+					</div>
+					
+					
+					<div id='hotel-rows' class='list-container'>
+					{% for item in hotels %}
+							<div class="result-row" id="hotels-list">
+								<a href="{% url 'hotel' item.id %}">
+								<div class="result-col1"> {{ item.title }} </div>
+								<div class="result-col2"> {{ item.address }}</div>
+								</a>
+							</div>
+					{% endfor %}
+					</div>
+					
+					<div id='museum-rows' class='list-container'>
+						{% for item in museums %}
+								<div class="result-row" id="museums-list">
+									<a href="{% url 'museum' item.id %}">
+									<div class="result-col1"> {{ item.title }}</div>
+									<div class="result-col2"> {{ item.address }} </div>
+									</a>
+								</div>
+						{% endfor %}
+					</div>
+					
+					<div id='industry-rows' class='list-container'>
+						{% for item in industries %}
+								<div class="result-row" id="industries-list">
+									<a href="{% url 'industry' item.id %}">
+									<div class="result-col1"> {{ item.title }} </div>
+									<div class="result-col2"> {{ item.address }}</div>
+									</a>
+								</div>
+						{% endfor %}
+					</div>
+					
+					<div id='library-rows' class='list-container'>
+						{% for item in libraries %}
+								<div class="result-row" id="libraries-list">
+									<a href="{% url 'library' item.id %}">
+										<div class="result-col1"> {{ item.title }} </div>
+										<div class="result-col2"> {{ item.address }}</div>
+									</a>
+								</div>
+						{% endfor %}
+					</div>
+					
+					<div id='zoo-rows' class='list-container'>
+						{% for item in zoos %}
+								<div class="result-row" id="zoos-list">
+									<a href="{% url 'zoo' item.id %}">
+									<div class="result-col1"> {{ item.title }} </div>
+									<div class="result-col2"> {{ item.address }}</div>
+									</a>
+								</div>
+						{% endfor %}
+					</div>
+					
+					<div id='park-rows' class='list-container'>
+						{% for item in parks %}
+								<div class="result-row" id="parks-list">
+									<a href="{% url 'park' item.id %}">
+									<div class="result-col1"> {{ item.title }} </div>
+									<div class="result-col2"> {{ item.address }}</div>
+									</a>
+								</div>
+						{% endfor %}
+					</div>
+					
+					
+					<div id='restaurant-rows' class='list-container'>
+						{% for item in restaurants %}
+								<div class="result-row" id="restaurants-list">
+									<a href="{% url 'restaurant' item.id %}">
+									<div class="result-col1"> {{ item.title }} </div>
+									<div class="result-col2"> {{ item.address }}</div>
+									</a>
+								</div>
+						{% endfor %}
+					</div>
+					
+					<div id='mall-rows' class='list-container'>
+						{% for item in malls %}
+								<div class="result-row" id="malls-list">
+									<a href="{% url 'mall' item.id %}">
+									<div class="result-col1"> {{ item.title }} </div>
+									<div class="result-col2"> {{ item.address }}</div>
+									</a>
+								</div>
+						{% endfor %}
+					</div>
+					
+					<div id='cafe-rows' class='list-container'>
+						{% for item in cafes %}
+								<div class="result-row" id="cafes-list">
+									<a href="{% url 'cafe' item.id %}">
+									<div class="result-col1"> {{ item.title }} </div>
+									<div class="result-col2"> {{ item.address }}</div>
+									</a>
+								</div>
+						{% endfor %}
+					</div>
+				</div>

@@ -1,0 +1,168 @@
+{% load static %}
+
+<!doctype html>
+<html>
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+	{% include "../includes/header.html %}
+	<body">
+		{% include "../includes/topbar.html" %}
+		<content>
+			<div>
+				<div id="results-container">
+					<div class="result-header" id="list-titles">
+						<div class="result-col1">TITLE</div>
+						<div class="result-col2">ADDRESS</div>
+					</div>
+					
+					
+					<div id='college-rows' class='list-container'>
+					{% for item in colleges %}			
+						<div class="result-row" id="colleges-list">
+							<a href="{% url 'college' item.id %}">
+							<div class="result-col1">{{ item.title }}</div>
+							<div class="result-col2">{{ item.address }}</div>
+							</a>
+						</div>
+					{% endfor %}
+					</div>
+					
+					
+					<div id='hotel-rows' class='list-container'>
+					{% for item in hotels %}
+							<div class="result-row" id="hotels-list">
+								<a href="{% url 'hotel' item.id %}">
+								<div class="result-col1"> {{ item.title }} </div>
+								<div class="result-col2"> {{ item.address }}</div>
+								</a>
+							</div>
+					{% endfor %}
+					</div>
+					
+					<div id='museum-rows' class='list-container'>
+						{% for item in museums %}
+								<div class="result-row" id="museums-list">
+									<a href="{% url 'museum' item.id %}">
+									<div class="result-col1"> {{ item.title }}</div>
+									<div class="result-col2"> {{ item.address }} </div>
+									</a>
+								</div>
+						{% endfor %}
+					</div>
+					
+					<div id='industry-rows' class='list-container'>
+						{% for item in industries %}
+								<div class="result-row" id="industries-list">
+									<a href="{% url 'industry' item.id %}">
+									<div class="result-col1"> {{ item.title }} </div>
+									<div class="result-col2"> {{ item.address }}</div>
+									</a>
+								</div>
+						{% endfor %}
+					</div>
+					
+					<div id='library-rows' class='list-container'>
+						{% for item in libraries %}
+								<div class="result-row" id="libraries-list">
+									<a href="{% url 'library' item.id %}">
+										<div class="result-col1"> {{ item.title }} </div>
+										<div class="result-col2"> {{ item.address }}</div>
+									</a>
+								</div>
+						{% endfor %}
+					</div>
+					
+					<div id='zoo-rows' class='list-container'>
+						{% for item in zoos %}
+								<div class="result-row" id="zoos-list">
+									<a href="{% url 'zoo' item.id %}">
+									<div class="result-col1"> {{ item.title }} </div>
+									<div class="result-col2"> {{ item.address }}</div>
+									</a>
+								</div>
+						{% endfor %}
+					</div>
+					
+					<div id='park-rows' class='list-container'>
+						{% for item in parks %}
+								<div class="result-row" id="parks-list">
+									<a href="{% url 'park' item.id %}">
+									<div class="result-col1"> {{ item.title }} </div>
+									<div class="result-col2"> {{ item.address }}</div>
+									</a>
+								</div>
+						{% endfor %}
+					</div>
+					
+					
+					<div id='restaurant-rows' class='list-container'>
+						{% for item in restaurants %}
+								<div class="result-row" id="restaurants-list">
+									<a href="{% url 'restaurant' item.id %}">
+									<div class="result-col1"> {{ item.title }} </div>
+									<div class="result-col2"> {{ item.address }}</div>
+									</a>
+								</div>
+						{% endfor %}
+					</div>
+					
+					<div id='mall-rows' class='list-container'>
+						{% for item in malls %}
+								<div class="result-row" id="malls-list">
+									<a href="{% url 'mall' item.id %}">
+									<div class="result-col1"> {{ item.title }} </div>
+									<div class="result-col2"> {{ item.address }}</div>
+									</a>
+								</div>
+						{% endfor %}
+					</div>
+
+				</div>
+				<div id="selection-container">
+					<h3>SELECTION MENU</h3>
+					<div id="selection-container-ws"></div>
+					<form>
+						<div class="checkbox-container">
+							<input type="checkbox" class="poi-checkbox" id="college-checkbox"onchange="toggleList(this, 'college-rows')"/>
+							<label class="poi-checkbox-label"/>COLLEGES</label>
+						</div>
+						<div class="checkbox-container">
+							<input type="checkbox" class="poi-checkbox" id="hotel-checkbox" onchange="toggleList(this, 'hotel-rows')"/>
+							<label class="poi-checkbox-label"/>HOTELS</label>
+						</div>
+						<div class="checkbox-container">
+							<input type="checkbox" class="poi-checkbox" id="museum-checkbox" onchange="toggleList(this, 'museum-rows')"/>
+							<label class="poi-checkbox-label"/>MUSEUMS</label>
+						</div>
+						<div class="checkbox-container">
+							<input type="checkbox" class="poi-checkbox" id="industry-checkbox" onchange="toggleList(this, 'industry-rows')"/>
+							<label class="poi-checkbox-label"/>INDUSTRY</label>
+						</div>
+						<div class="checkbox-container">
+							<input type="checkbox" class="poi-checkbox" id="library-checkbox" onchange="toggleList(this, 'library-rows')"/>
+							<label class="poi-checkbox-label"/>LIBRARY</label>
+						</div>
+						<div class="checkbox-container">
+							<input type="checkbox" class="poi-checkbox" id="zoo-checkbox" onchange="toggleList(this, 'zoo-rows')"/>
+							<label class="poi-checkbox-label"/>ZOOS</label>
+						</div>
+						<div class="checkbox-container">
+							<input type="checkbox" class="poi-checkbox" id='park-checkbox' onchange="toggleList(this, 'park-rows')"/>
+							<label class="poi-checkbox-label"/>PARKS</label>
+						</div>
+						<div class="checkbox-container">
+							<input type="checkbox" class="poi-checkbox" id='restaurant-checkbox' onchange="toggleList(this, 'restaurant-rows')"/>
+							<label class="poi-checkbox-label"/>RESTAURANTS</label>
+						</div>
+						<div class="checkbox-container">
+							<input type="checkbox" class="poi-checkbox" id='mall-checkbox' onchange="toggleList(this, 'mall-rows')"/>
+							<label class="poi-checkbox-label"/>MALLS</label>
+						</div>
+					</form>
+				</div>	
+			</div>
+		</content>
+		
+	<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+	</body>
+	{% include "../includes/footer.html" %}
+</html>

@@ -1,149 +1,145 @@
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
-<!doctype html>
-<html>
-	<script src="https://www.w3schools.com/lib/w3.js"></script>
-	{% include "../includes/header.html %}
-	<body">
-		{% include "../includes/topbar.html" %}
-		<content>
-			<div>
-				<div id="results-container" cellspacing='0'>
-					<div class="result-header" id="list-titles">
-						<div class="result-col1">TITLE</div>
-						<div class="result-col2">ADDRESS</div>
-					</div>
-					
-					{% for item in colleges %}			
-					<a href="{% url 'college' item.id %}">
-						<div class="result-row" id="colleges-list" >
-							<div class="result-col1">{{ item.title }} </div>
-							<div class="result-col2">{{ item.address }} </div>
-						</div>
-					</a>
-					{% endfor %}
-					
-					
-					
-					{% for item in hotels %}
-						<a href="{% url 'hotel' item.id %}">
-							<div class="result-row" id="hotels-list">
-								<div class="result-col1"> {{ item.title }} </div>
-								<div class="result-col2"> {{ item.address }}</div>
-							</div>
-						</a>
-					{% endfor %}
-					
-				    {% for item in museums %}
-						<a href="{% url 'hotel' item.id %}">
-							<div class="result-row" id="museums-list">
-								<div class="result-col1"> {{ item.title }}</div>
-								<div class="result-col2"> AAA </div>
-							</div>
-						</a>
-					{% endfor %}
-					
-					{% for item in industries %}
-						<a href="{% url 'industry' item.id %}">
-							<div class="result-row" id="industries-list">
-								<div class="result-col1"> {{ item.title }} </div>
-								<div class="result-col2"> {{ item.address }}</div>
-							</div>
-						</a>
-					{% endfor %}
-					
-					{% for item in libraries %}
-						<a href="{% url 'library' item.id %}">
-							<div class="result-row" id="libraries-list">
-								<div class="result-col1"> {{ item.title }} </div>
-								<div class="result-col2"> {{ item.address }}</div>
-							</div>
-						</a>
-					{% endfor %}
-					
-					{% for item in zoos %}
-						<a href="{% url 'zoo' item.id %}">
-							<div class="result-row" id="zoos-list">
-								<div class="result-col1"> {{ item.title }} </div>
-								<div class="result-col2"> {{ item.address }}</div>
-							</div>
-						</a>
-					{% endfor %}
-					
-					{% for item in parks %}
-						<a href="{% url 'park' item.id %}">
-							<div class="result-row" id="parks-list">
-								<div class="result-col1"> {{ item.title }} </div>
-								<div class="result-col2"> {{ item.address }}</div>
-							</div>
-						</a>
-					{% endfor %}
-					
-					{% for item in restaurants %}
-						<a href="{% url 'restaurant' item.id %}">
-							<div class="result-row" id="restaurants-list">
-								<div class="result-col1"> {{ item.title }} </div>
-								<div class="result-col2"> {{ item.address }}</div>
-							</div>
-						</a>
-					{% endfor %}
-					
-					{% for item in malls %}
-						<a href="{% url 'mall' item.id %}">
-							<div class="result-row" id="malls-list">
-								<div class="result-col1"> {{ item.title }} </div>
-								<div class="result-col2"> {{ item.address }}</div>
-							</div>
-						</a>
-					{% endfor %}
+  <head>
 
-				</div>
-				<div id="selection-container">
-					<h3>SELECTION MENU</h3>
-					<div id="selection-container-ws"></div>
-					<form>
-						<div class="checkbox-container">
-							<input type="checkbox" class="poi-checkbox" id="college-checkbox"onchange="toggleList(this, 'colleges-list')"/>
-							<label class="poi-checkbox-label"/>COLLEGES</label>
-						</div>
-						<div class="checkbox-container">
-							<input type="checkbox" class="poi-checkbox" id="hotel-checkbox" onchange="toggleList(this, 'hotels-list')"/>
-							<label class="poi-checkbox-label"/>HOTELS</label>
-						</div>
-						<div class="checkbox-container">
-							<input type="checkbox" class="poi-checkbox" id="museum-checkbox" onchange="toggleList(this, 'museums-list')"/>
-							<label class="poi-checkbox-label"/>MUSEUMS</label>
-						</div>
-						<div class="checkbox-container">
-							<input type="checkbox" class="poi-checkbox" id="industry-checkbox" onchange="toggleList(this, 'industries-list')"/>
-							<label class="poi-checkbox-label"/>INDUSTRY</label>
-						</div>
-						<div class="checkbox-container">
-							<input type="checkbox" class="poi-checkbox" id="library-checkbox" onchange="toggleList(this, 'libraries-list')"/>
-							<label class="poi-checkbox-label"/>LIBRARY</label>
-						</div>
-						<div class="checkbox-container">
-							<input type="checkbox" class="poi-checkbox" id="zoo-checkbox" onchange="toggleList(this, 'zoos-list')"/>
-							<label class="poi-checkbox-label"/>ZOOS</label>
-						</div>
-						<div class="checkbox-container">
-							<input type="checkbox" class="poi-checkbox" id='park-checkbox' onchange="toggleList(this, 'parks-list')"/>
-							<label class="poi-checkbox-label"/>PARKS</label>
-						</div>
-						<div class="checkbox-container">
-							<input type="checkbox" class="poi-checkbox" id='restaurant-checkbox' onchange="toggleList(this, 'restaurants-list')"/>
-							<label class="poi-checkbox-label"/>RESTAURANTS</label>
-						</div>
-						<div class="checkbox-container">
-							<input type="checkbox" class="poi-checkbox" id='mall-checkbox' onchange="toggleList(this, 'malls-list')"/>
-							<label class="poi-checkbox-label"/>MALLS</label>
-						</div>
-					</form>
-				</div>	
-			</div>
-		</content>
-		
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Smart City Search</title>
+
+    <!-- Bootstrap core CSS -->
+    <!--link href="{% static 'css/bootstrap-fluid-adj.css' %}" rel="stylesheet"-->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <!--link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet"->
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/blog-home.css' %}" rel="stylesheet">
+	<link href="{% static 'css/custom-search.css' %}" rel="stylesheet">
+	
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Smart City</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+
+          <h1 class="my-4">{{ city.name }}</h1>
+
+          <!-- Blog Post -->
+          <div class="card mb-4">
+            <img class="card-img-top" src="{% static 'images/bne-1.jpg' %}" alt="Card image cap">
+            <div class="card-body">
+              <h2 class="card-title"> {{ city.heading1 }}</h2>
+              <p class="card-text"> {{ city.para1 }}</p>
+              <a href="#" class="btn btn-primary">Read More &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Blog Post -->
+          <div class="card mb-4">
+            <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+            <div class="card-body">
+              <h2 class="card-title">Post Title</h2>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+              <a href="#" class="btn btn-primary">Read More &rarr;</a>
+            </div>
+            <div class="card-footer text-muted">
+              Posted on January 1, 2017 by
+              <a href="#">Start Bootstrap</a>
+            </div>
+          </div>
+
+          <!-- Blog Post -->
+          <div class="card mb-4">
+            <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+            <div class="card-body">
+              <h2 class="card-title">Post Title</h2>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+              <a href="#" class="btn btn-primary">Read More &rarr;</a>
+            </div>
+            <div class="card-footer text-muted">
+              Posted on January 1, 2017 by
+              <a href="#">Start Bootstrap</a>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <ul class="pagination justify-content-center mb-4">
+            <li class="page-item">
+              <a class="page-link" href="#">&larr; Older</a>
+            </li>
+            <li class="page-item disabled">
+              <a class="page-link" href="#">Newer &rarr;</a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+          <!-- Categories -->
+          <div class="card my-4">
+            <h5 class="card-header">Search Categories</h5>
+            <div class="card-body">
+			
+				{% include "../includes/search-checkboxes.html %}
+			
+            </div>
+          </div>
+
+          <!-- POI Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Places of Interest</h5>
+            <div class="card-body">
+              
+			  {% include "../includes/results-widget.html %}
+			  
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- /.row -->
+	
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src=" {% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src=" {% static 'vendor/popper/popper.min.js' %}"></script>
+    <script src=" {% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
-	</body>
-	{% include "../includes/footer.html" %}
+  </body>
+
 </html>

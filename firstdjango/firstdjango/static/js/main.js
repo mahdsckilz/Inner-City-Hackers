@@ -16,27 +16,33 @@ function toggleList(element, modelClass){
 }
 
 function initGroupCheckbox(){
-	var searchParams = new URLSearchParams(window.location.search); 
+	var searchParams = new URLSearchParams(window.location.search);
+	var checkBoxes = document.getElementsByClassName('poi-checkbox');
+	
+	for (var i = 0; i < checkBoxes.length; i++){
+		checkBoxes[i].checked = false;
+	}
+	
 	group = searchParams.get("Group")
 	if (group == 'Student'){
 		document.getElementById('college-checkbox').checked = true;
-		document.getElementById('library-checkbox').checked = true;
-		document.getElementById('colleges-list').style.display = 'inline-block';
-		document.getElementById('libraries-list').style.display = 'inline-block';
+		document.getElementById('library-checkbox').checked = true;		
+		document.getElementById('college-rows').style.display = 'inline-block';		
+		document.getElementById('library-rows').style.display = 'inline-block';
 	}
 	
 	if (group == 'Tourist'){
 		document.getElementById('hotel-checkbox').checked = true;
 		document.getElementById('library-checkbox').checked = true;
-		document.getElementById('hotels-list').style.display = 'inline-block';
-		document.getElementById('libraries-list').style.display = 'inline-block';
+		document.getElementById('hotel-rows').style.display = 'inline-block';
+		document.getElementById('library-rows').style.display = 'inline-block';
 	}
 	
 	if (group == 'BusinessMan'){
 		document.getElementById('hotel-checkbox').checked = true;
 		document.getElementById('industry-checkbox').checked = true;
-		document.getElementById('hotels-list').style.display = 'inline-block';
-		document.getElementById('industries-list').style.display = 'inline-block';
+		document.getElementById('hotel-rows').style.display = 'inline-block';
+		document.getElementById('industry-rows').style.display = 'inline-block';
 	}
 }
 

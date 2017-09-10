@@ -4,6 +4,9 @@ from .models import *
 
 class ItemAdmin(admin.ModelAdmin):
     list_display = ['title', 'id']
+	
+class CityAdmin(admin.ModelAdmin):
+	list_display = ['name', 'state']
 
 admin.site.register(College, ItemAdmin)
 admin.site.register(Library, ItemAdmin)
@@ -14,3 +17,6 @@ admin.site.register(Zoo, ItemAdmin)
 admin.site.register(Museum, ItemAdmin)
 admin.site.register(Restaurant, ItemAdmin)
 admin.site.register(Mall, ItemAdmin)
+admin.site.register(Cafe, ItemAdmin)
+
+admin.site.register(City, CityAdmin)

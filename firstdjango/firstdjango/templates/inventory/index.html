@@ -16,6 +16,13 @@
 							<input type='submit' name='Group' value='Tourist'>
 							<input type='submit' name='Group' value='BusinessMan'>
 						</form>
+						<form>
+							<select>
+								{% for item in city %}
+									<option value="{{item.name}}">{{item.name}}</option>					
+								{% endfor %}
+							</select>
+						</form>
 					</div>
 				</div>
 				<div id="register-container">
