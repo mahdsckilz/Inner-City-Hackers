@@ -155,15 +155,9 @@ def group_cookie_handler(request, response, groupPOST):
 	
 	response.set_cookie('group', group)
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+def test(request):
+	return render(request, 'inventory/test.html', {
+	})
+
 	

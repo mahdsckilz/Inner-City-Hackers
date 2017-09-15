@@ -90,3 +90,9 @@ input[type="checkbox"]{
 	width: 10px;
 	height: 10px; 
 }
+
+
+#logo-image{
+	height: 30px;
+	width: auto;
+}

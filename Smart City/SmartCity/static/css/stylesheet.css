@@ -1,0 +1,15 @@
+#logo-image{
+	height: 30px;
+	width: auto;
+}
+
+#login-row{
+position: relative;
+width: 100%;
+}
+
+#login-container{
+	position: relative;
+	left: 50%;
+	transform: translatex(-50%);
+}

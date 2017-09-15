@@ -1,0 +1,60 @@
+
+/*============== sticky-wrapper =============**/
+.header-content {
+  padding: 50px 0;
+}
+.header-title {
+  color: #70a1ef;
+  display: block;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 50px;
+  text-transform: uppercase;
+}
+.header-motto {
+  color: #70a1ef;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+}
+.form-block {
+  background: #f9f9f9 none repeat scroll 0 0;
+  border-radius: 1px;
+  box-shadow: 2px 3px 8px #a7a7a7;
+  color: gray;
+  display: block;
+  min-height:460px;
+  overflow: hidden;
+  padding:30px;
+  margin-bottom:20px;
+}
+.form-block h2 {
+  border-bottom: 1px solid #70a1ef;
+  color: #70a1ef;
+  display: block;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 28px;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+}
+.form .form-control {
+  border-radius: 0;
+  color: #999;
+  height: 42px;
+}
+.form-control:focus {
+  border-color: #70a1ef;
+  box-shadow: none;
+}
+.custom-btn:hover,
+.custom-btn {
+  background-color: #70a1ef;
+  border-color: #70a1ef;
+  color: #fff;
+  font-size: 20px;
+  height: 40px;
+  width: 100%;
+  font-weight: 500;
+}
+

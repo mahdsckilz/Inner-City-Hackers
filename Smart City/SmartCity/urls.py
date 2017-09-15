@@ -18,4 +18,5 @@ urlpatterns = [
     url(r'^mall/(?P<id>\d+)/', views.mall_detail, name='mall'),    
 	url(r'^cafe/(?P<id>\d+)/', views.cafe_detail, name='cafe'),    
     url(r'^admin/', admin.site.urls),
+	url(r'^test', views.test, name='test'),
 ]
