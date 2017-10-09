@@ -51,12 +51,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'firstdjango.urls'
+ROOT_URLCONF = 'smartcity.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['firstdjango/templates'],
+        'DIRS': ['smartcity/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'firstdjango.wsgi.application'
+WSGI_APPLICATION = 'smartcity.wsgi.application'
 
 
 # Database
@@ -122,7 +122,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-	os.path.join(BASE_DIR, 'firstdjango', 'static'),
+	os.path.join(BASE_DIR, 'smartcity', 'static'),
 )
 
 
