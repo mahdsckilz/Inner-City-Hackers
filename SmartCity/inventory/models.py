@@ -21,6 +21,7 @@ class College(models.Model):
 	email = models.EmailField(default='')
 	departments = models.TextField(default='')
 	city = models.ForeignKey(City,on_delete=models.CASCADE, null=True)
+	image = models.CharField(max_length=200, default='')
 
 	
 
@@ -32,6 +33,8 @@ class Library(models.Model):
     openingHours = models.CharField(max_length=5, default="00:00")
     closingHours = models.CharField(max_length=5, default="00:00")
     description = models.TextField()
+    city = models.ForeignKey(City,on_delete=models.CASCADE, null=True)
+    image = models.CharField(max_length=200, default='')
 
 class Industry(models.Model):
     class Meta:
@@ -41,6 +44,8 @@ class Industry(models.Model):
     openingHours = models.CharField(max_length=5, default="00:00")
     closingHours = models.CharField(max_length=5, default="00:00")
     description = models.TextField()
+    city = models.ForeignKey(City,on_delete=models.CASCADE, null=True)
+    image = models.CharField(max_length=200, default='')
 
 class Hotel(models.Model):
     title = models.CharField(max_length=200)
@@ -48,6 +53,8 @@ class Hotel(models.Model):
     openingHours = models.CharField(max_length=5, default="00:00")
     closingHours = models.CharField(max_length=5, default="00:00")
     description = models.TextField()
+    city = models.ForeignKey(City,on_delete=models.CASCADE, null=True)
+    image = models.CharField(max_length=200, default='')
 
 class Park(models.Model):
     title = models.CharField(max_length=200)
@@ -55,6 +62,8 @@ class Park(models.Model):
     openingHours = models.CharField(max_length=5, default="00:00")
     closingHours = models.CharField(max_length=5, default="00:00")
     description = models.TextField()
+    city = models.ForeignKey(City,on_delete=models.CASCADE, null=True)
+    image = models.CharField(max_length=200, default='')
 
 class Zoo(models.Model):
     title = models.CharField(max_length=200)
@@ -62,6 +71,8 @@ class Zoo(models.Model):
     openingHours = models.CharField(max_length=5, default="00:00")
     closingHours = models.CharField(max_length=5, default="00:00")
     description = models.TextField()
+    city = models.ForeignKey(City,on_delete=models.CASCADE, null=True)
+    image = models.CharField(max_length=200, default='')
 
 class Museum(models.Model):
     title = models.CharField(max_length=200)
@@ -69,6 +80,8 @@ class Museum(models.Model):
     openingHours = models.CharField(max_length=5, default="00:00")
     closingHours = models.CharField(max_length=5, default="00:00")
     description = models.TextField()
+    city = models.ForeignKey(City,on_delete=models.CASCADE, null=True)
+    image = models.CharField(max_length=200, default='')
     
 class Restaurant(models.Model):
     title = models.CharField(max_length=200)
@@ -76,6 +89,8 @@ class Restaurant(models.Model):
     openingHours = models.CharField(max_length=5, default="00:00")
     closingHours = models.CharField(max_length=5, default="00:00")
     description = models.TextField()
+    city = models.ForeignKey(City,on_delete=models.CASCADE, null=True)
+    image = models.CharField(max_length=200, default='')
     
 class Mall(models.Model):
     title = models.CharField(max_length=200)
@@ -83,6 +98,8 @@ class Mall(models.Model):
     openingHours = models.CharField(max_length=5, default="00:00")
     closingHours = models.CharField(max_length=5, default="00:00")
     description = models.TextField()
+    city = models.ForeignKey(City,on_delete=models.CASCADE, null=True)
+    image = models.CharField(max_length=200, default='')
 
 class Cafe(models.Model):
     title = models.CharField(max_length=200)
@@ -90,3 +107,5 @@ class Cafe(models.Model):
     openingHours = models.CharField(max_length=5, default="00:00")
     closingHours = models.CharField(max_length=5, default="00:00")
     description = models.TextField()
+    city = models.ForeignKey(City,on_delete=models.CASCADE, null=True)
+    image = models.CharField(max_length=200, default='')
