@@ -41,7 +41,11 @@
 
 <h3> {{item.title}} </h3>
 <br>
+<!--
 <img src="{% static 'images/bne-map.PNG'%}" alt="Map of Brisbane">
+-->
+<img src="{{item.image.url}}">
+
 <br>
 <br>
 <p>{{item.address}} </p>

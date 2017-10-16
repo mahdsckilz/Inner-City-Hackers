@@ -15,22 +15,35 @@
                         <div class="form-block">
                           <h2>Register</h2>
                           <div class="form">
-                            <form>
+                            <form action="/" method="post"> {% csrf_token %}
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Enter Username" name="username" required>
                                 </div>
 								<div class="form-group">
                                     <input type="Email" class="form-control" placeholder="Enter email" name="email" required>
                                 </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Enter Password" name="password1" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Enter Repeat Password" name="password2" required>
+                                </div>
 								<div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Student/Businessman/Tourist" name="last-name" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Enter Password" name="password" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Enter Repeat Password" name="repeat-password" required>
-                                </div>
+									<select class="form-control">
+										<option value="" disabled selected>Select Home City</option>
+										{% for item in city %}
+											<option value="{{item.name}}">{{item.name}}</option>					
+										{% endfor %}
+									</select>
+								</div>
+								<div class="form-group">
+									<select class="form-control">
+										<option value="" disabled selected>What best describes you?</option>
+										{% for item in searchGroup %}
+											<option value="{{item.groupName}}">{{item.groupName}}</option>					
+										{% endfor %}
+									</select>
+								</div>
                                 <button type="submit" class="btn btn-default custom-btn">Submit</button>
                             </form>
                           </div>

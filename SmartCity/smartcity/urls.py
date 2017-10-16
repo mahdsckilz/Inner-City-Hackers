@@ -1,9 +1,12 @@
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls import include, url
+from django.conf.urls.static import static
 
 from inventory import views
 
-urlpatterns = [
+urlpatterns = [	
     url(r'^$', views.index, name='index'),
 	url(r'^bootstrap', views.bootstrap, name='bootstrap'),
 	url(r'^search', views.search, name='search'),
@@ -19,4 +22,7 @@ urlpatterns = [
 	url(r'^cafe/(?P<id>\d+)/', views.cafe_detail, name='cafe'),    
     url(r'^admin/', admin.site.urls),
 	url(r'^test', views.test, name='test'),
-]
+	]
+	
+if settings.DEBUG:
+	urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
