@@ -1,27 +1,36 @@
-from django.conf.urls import url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 
-from inventory import views
+from smartcity import views as smartcityviews
+from inventory import views as inventoryviews
+from userprofile import views as userprofileviews
 
 urlpatterns = [	
-    url(r'^$', views.index, name='index'),
-	url(r'^bootstrap', views.bootstrap, name='bootstrap'),
-	url(r'^search', views.search, name='search'),
-    url(r'^college/(?P<id>\d+)/', views.college_detail, name='college'),
-    url(r'^library/(?P<id>\d+)/', views.library_detail, name='library'),
-    url(r'^industry/(?P<id>\d+)/', views.industry_detail, name='industry'),
-    url(r'^hotel/(?P<id>\d+)/', views.hotel_detail, name='hotel'),
-    url(r'^park/(?P<id>\d+)/', views.park_detail, name='park'),
-    url(r'^zoo/(?P<id>\d+)/', views.zoo_detail, name='zoo'),
-    url(r'^museum/(?P<id>\d+)/', views.museum_detail, name='museum'),
-    url(r'^restaurant/(?P<id>\d+)/', views.restaurant_detail, name='restaurant'),
-    url(r'^mall/(?P<id>\d+)/', views.mall_detail, name='mall'),    
-	url(r'^cafe/(?P<id>\d+)/', views.cafe_detail, name='cafe'),    
+
+	url(r'^accounts/login/$', smartcityviews.login),
+	url(r'^accounts/auth/$', smartcityviews.auth_view),	
+	url(r'^accounts/logout/$', smartcityviews.logout),
+	url(r'^accounts/loggedin/$', smartcityviews.loggedin),
+	url(r'^accounts/invalid/$', smartcityviews.invalid_login),
+	url(r'^accounts/register/$', userprofileviews.register_user),
+	url(r'^accounts/register_success/$', smartcityviews.register_success),
+	
+	url(r'^$', inventoryviews.index, name='index'),
+	url(r'^bootstrap', inventoryviews.bootstrap, name='bootstrap'),
+	url(r'^search', inventoryviews.search, name='search'),
+    url(r'^college/(?P<id>\d+)/', inventoryviews.college_detail, name='college'),
+    url(r'^library/(?P<id>\d+)/', inventoryviews.library_detail, name='library'),
+    url(r'^industry/(?P<id>\d+)/', inventoryviews.industry_detail, name='industry'),
+    url(r'^hotel/(?P<id>\d+)/', inventoryviews.hotel_detail, name='hotel'),
+    url(r'^park/(?P<id>\d+)/', inventoryviews.park_detail, name='park'),
+    url(r'^zoo/(?P<id>\d+)/', inventoryviews.zoo_detail, name='zoo'),
+    url(r'^museum/(?P<id>\d+)/', inventoryviews.museum_detail, name='museum'),
+    url(r'^restaurant/(?P<id>\d+)/', inventoryviews.restaurant_detail, name='restaurant'),
+    url(r'^mall/(?P<id>\d+)/', inventoryviews.mall_detail, name='mall'),    
+	url(r'^cafe/(?P<id>\d+)/', inventoryviews.cafe_detail, name='cafe'), 
     url(r'^admin/', admin.site.urls),
-	url(r'^test', views.test, name='test'),
 	]
 	
 if settings.DEBUG:

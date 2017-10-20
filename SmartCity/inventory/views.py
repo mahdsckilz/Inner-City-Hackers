@@ -9,24 +9,8 @@ from django.template.context_processors import csrf
 from itertools import chain
 from inventory.models import *
 from django.contrib.auth.models import User, Group
-	
-def register_success(request):
-	return render_to_response('index.html')
 
 def index(request):
-
-	if request.method == 'POST':
-		form = UserCreationForm(request.POST)
-		if form.is_valid():
-			form.save()
-			return HttpResponseRedirect('/')	
-		else:
-			args = {}
-			args.update(csrf(request))
-			args['form'] = UserCreationForm()
-			return HttpResponseRedirect('/')
-			'''return render_to_response('index', args)'''
-
 	city = City.objects.all()
 	searchGroup = SearchGroup.objects.all()
 	

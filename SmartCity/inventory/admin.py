@@ -2,9 +2,6 @@ from django.contrib import admin
 
 from .models import *
 
-class UserProfileAdmin(admin.ModelAdmin):
-	list_display = ['user', 'city', 'searchGroup']
-
 class SearchGroupAdmin(admin.ModelAdmin):
 	list_display = ['groupName']
 
@@ -27,5 +24,3 @@ admin.site.register(Cafe, ItemAdmin)
 admin.site.register(SearchGroup, SearchGroupAdmin)
 
 admin.site.register(City, CityAdmin)
-
-admin.site.register(UserProfile, UserProfileAdmin)
