@@ -2,7 +2,6 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
-
 from smartcity import views as smartcityviews
 from inventory import views as inventoryviews
 from userprofile import views as userprofileviews
@@ -11,7 +10,6 @@ urlpatterns = [
 
 	url(r'^accounts/login/$', smartcityviews.login),
 	url(r'^accounts/auth/$', smartcityviews.auth_view),	
-	url(r'^accounts/logout/$', smartcityviews.logout),
 	url(r'^accounts/loggedin/$', smartcityviews.loggedin),
 	url(r'^accounts/invalid/$', smartcityviews.invalid_login),
 	url(r'^accounts/register/$', userprofileviews.register_user),

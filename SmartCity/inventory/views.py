@@ -28,15 +28,15 @@ def bootstrap(request):
 	})
 	
 def search(request):
+
+		cityid = request.user.profile.city_id
+		city = City.objects.get(id = cityid)
 		
-		if request.session.test_cookie_worked():
-			print("TEST COOKIE WORKED!")
-			request.session.delete_test_cookie()
-			
-		selectedCity = City.objects.get(name='Brisbane');
+		searchGroupid = request.user.profile.searchGroup_id
+		searchGroup = SearchGroup.objects.get(id = searchGroupid)
 				
 		students = User.objects.all()		
-		colleges = College.objects.filter(city__name__exact=selectedCity)
+		colleges = College.objects.filter(city__name__exact=city.name)
 		hotels = Hotel.objects.all()
 		industries = Industry.objects.all()
 		libraries = Library.objects.all()
@@ -60,7 +60,8 @@ def search(request):
 		'zoos' : zoos,
 		'students': students,
 		'cafes' : cafes,
-		'city' : selectedCity,
+		'city' : city,
+		'searchGroup' : searchGroup,
 		})
 
 def college_detail(request, id):

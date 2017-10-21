@@ -15,19 +15,15 @@ def auth_view(request):
 	
 	if user is not None:
 		auth.login(request, user)
-		return HttpResponseRedirect('/accounts/loggedin')
+		return HttpResponseRedirect('/search/')
 	else:
 		return HttpResponseRedirect("/")
 		
 def loggedin(request):
-	return render_to_response('inventory/search.html', {'full_name': request.user.username})
+	return render_to_response('inventory/search.html', {'full_name': request.user})
 	
 def invalid_login(request):
 	return render_to_response('invalid_login.html')
-	
-def logout(request):
-	auth.logout(request)
-	return render_to_response('logout.html')
 
 def register_success(request):
 	return render_to_response('index.html')

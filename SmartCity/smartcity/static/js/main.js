@@ -18,12 +18,11 @@ function toggleList(element, modelClass){
 function initGroupCheckbox(){
 	var searchParams = new URLSearchParams(window.location.search);
 	var checkBoxes = document.getElementsByClassName('poi-checkbox');
-	
+
 	for (var i = 0; i < checkBoxes.length; i++){
 		checkBoxes[i].checked = false;
 	}
 	
-	group = searchParams.get("Group")
 	if (group == 'Student'){
 		document.getElementById('college-checkbox').checked = true;
 		document.getElementById('library-checkbox').checked = true;		
@@ -38,7 +37,7 @@ function initGroupCheckbox(){
 		document.getElementById('library-rows').style.display = 'inline-block';
 	}
 	
-	if (group == 'BusinessMan'){
+	if (group == 'Business Person'){
 		document.getElementById('hotel-checkbox').checked = true;
 		document.getElementById('industry-checkbox').checked = true;
 		document.getElementById('hotel-rows').style.display = 'inline-block';

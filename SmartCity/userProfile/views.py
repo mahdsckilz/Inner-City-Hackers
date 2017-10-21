@@ -5,6 +5,8 @@ from userprofile.forms import UserProfileForm, UserForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.shortcuts import redirect
+from inventory.models import City
+from django.contrib import auth
 
 def register_user(request):
 	registered = False
@@ -25,7 +27,9 @@ def register_user(request):
 			profile.save()
 			
 			registered = True
-			return HttpResponseRedirect('/search/')
+			auth.login(request, user)
+			
+			return HttpResponseRedirect('/search/', )
 		
 		else:
 			return render_to_response('inventory/index.html')
