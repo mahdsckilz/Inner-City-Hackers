@@ -1,0 +1,9 @@
+	<form method="POST" action="/accounts/auth/">
+		<div class="form-group">{% csrf_token %}
+			<input type="text" class="form-control" id="email" placeholder="Enter email" name="username">
+		</div>
+		<div class="form-group">
+			<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+		</div>
+		<button type="submit" class="btn btn-default custom-btn">Submit</button>
+	</form>

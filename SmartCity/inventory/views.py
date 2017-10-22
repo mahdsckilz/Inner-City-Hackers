@@ -9,24 +9,8 @@ from django.template.context_processors import csrf
 from itertools import chain
 from inventory.models import *
 from django.contrib.auth.models import User, Group
-	
-def register_success(request):
-	return render_to_response('index.html')
 
 def index(request):
-
-	if request.method == 'POST':
-		form = UserCreationForm(request.POST)
-		if form.is_valid():
-			form.save()
-			return HttpResponseRedirect('/')	
-		else:
-			args = {}
-			args.update(csrf(request))
-			args['form'] = UserCreationForm()
-			return HttpResponseRedirect('/')
-			'''return render_to_response('index', args)'''
-
 	city = City.objects.all()
 	searchGroup = SearchGroup.objects.all()
 	
@@ -44,15 +28,15 @@ def bootstrap(request):
 	})
 	
 def search(request):
+
+		cityid = request.user.profile.city_id
+		city = City.objects.get(id = cityid)
 		
-		if request.session.test_cookie_worked():
-			print("TEST COOKIE WORKED!")
-			request.session.delete_test_cookie()
-			
-		selectedCity = City.objects.get(name='Brisbane');
+		searchGroupid = request.user.profile.searchGroup_id
+		searchGroup = SearchGroup.objects.get(id = searchGroupid)
 				
 		students = User.objects.all()		
-		colleges = College.objects.filter(city__name__exact=selectedCity)
+		colleges = College.objects.filter(city__name__exact=city.name)
 		hotels = Hotel.objects.all()
 		industries = Industry.objects.all()
 		libraries = Library.objects.all()
@@ -76,7 +60,8 @@ def search(request):
 		'zoos' : zoos,
 		'students': students,
 		'cafes' : cafes,
-		'city' : selectedCity,
+		'city' : city,
+		'searchGroup' : searchGroup,
 		})
 
 def college_detail(request, id):

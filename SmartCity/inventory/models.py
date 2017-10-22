@@ -26,15 +26,6 @@ class SearchGroup(models.Model):
 		verbose_name_plural = "Search Groups"
 
 	groupName = models.CharField(max_length=200)
-		
-
-class UserProfile(models.Model):
-	user = models.OneToOneField(User, related_name='user')
-	city = models.ForeignKey(City,on_delete=models.CASCADE, null=True)
-	searchGroup = models.ForeignKey(SearchGroup,on_delete=models.CASCADE, null=True)
-	
-User.profile = property(lambda u: UserProfile.objects.get_or_create(user=u)[0])
-	
 
 class College(models.Model):
 	title = models.CharField(max_length=200)
